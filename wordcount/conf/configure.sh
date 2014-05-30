@@ -30,8 +30,8 @@ fi
 
 # for preparation (per node) - 32G
 #DATASIZE=32000000000
-DATASIZE=3200000000
-NUM_MAPS=16
+DATASIZE=320000000000
+NUM_MAPS=128
 
 # for running (in total)
 NUM_REDS=48

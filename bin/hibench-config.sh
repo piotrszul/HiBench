@@ -26,9 +26,9 @@ export HIBENCH_VERSION="2.2"
 
 ###################### Global Paths ##################
 
-HADOOP_EXECUTABLE= 
-HADOOP_CONF_DIR=
-HADOOP_EXAMPLES_JAR=
+HADOOP_EXECUTABLE=hadoop
+HADOOP_CONF_DIR=/etc/hadoop/conf
+HADOOP_EXAMPLES_JAR=/usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar
 
 if [ -n "$HADOOP_HOME" ]; then
 	HADOOP_EXECUTABLE=$HADOOP_HOME/bin/hadoop
@@ -42,16 +42,17 @@ else
 	HADOOP_VERSION=hadoop1
 fi
 
+
 if [ "x"$HADOOP_VERSION == "xhadoop2" ]; then
-	export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-	HADOOP_EXAMPLES_JAR=$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples*.jar
-  MAPRED_EXECUTABLE=$HADOOP_HOME/bin/mapred
+	#export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+	#HADOOP_EXAMPLES_JAR=$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples*.jar
+        MAPRED_EXECUTABLE=mapred
 
   CONFIG_REDUCER_NUMBER=mapreduce.job.reduces
   CONFIG_MAP_NUMBER=mapreduce.job.maps
 else
-  export HADOOP_CONF_DIR=$HADOOP_HOME/conf
-  HADOOP_EXAMPLES_JAR=$HADOOP_HOME/hadoop-examples*.jar
+#  export HADOOP_CONF_DIR=$HADOOP_HOME/conf
+#  HADOOP_EXAMPLES_JAR=$HADOOP_HOME/hadoop-examples*.jar
 
   CONFIG_REDUCER_NUMBER=mapred.reduce.tasks
   CONFIG_MAP_NUMBER=mapred.map.tasks
@@ -111,7 +112,7 @@ export HIBENCH_REPORT=${HIBENCH_HOME}/hibench.report
 
 ################# Compress Options #################
 # swith on/off compression: 0-off, 1-on
-export COMPRESS_GLOBAL=1
+export COMPRESS_GLOBAL=0
 export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.DefaultCodec
 #export COMPRESS_CODEC_GLOBAL=com.hadoop.compression.lzo.LzoCodec
 #export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.SnappyCodec
