@@ -38,13 +38,15 @@ $HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}
 
 # generate data
 OPTION="-sampleDir ${INPUT_SAMPLE} -clusterDir ${INPUT_CLUSTER} -numClusters ${NUM_OF_CLUSTERS} -numSamples ${NUM_OF_SAMPLES} -samplesPerFile ${SAMPLES_PER_INPUTFILE} -sampleDimension ${DIMENSIONS}"
-export HADOOP_CLASSPATH=`mahout classpath | tail -1`
+#export HADOOP_CLASSPATH=`mahout classpath | tail -1`
 
 rm -rf $TMPLOGFILE
 
-export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:/home/szu004/HiBench/common/autogen/lib/uncommons-maths-1.2.2.jar
+# Autodetect JAVA_HOME if not defined
+. /usr/lib/bigtop-utils/bigtop-detect-javahome
 
-echo "$HADOOP_CLASSPATH"
 
-exec "$HADOOP_EXECUTABLE" --config $HADOOP_CONF_DIR jar ${DATATOOLS} org.apache.mahout.clustering.kmeans.GenKMeansDataset ${COMPRESS_OPT} ${OPTION} 2>&1 | tee $TMPLOGFILE
+export CLASSPATH=/home/szu004/HiBench/common/autogen/lib/uncommons-maths-1.2.2.jar:${DATATOOLS}
+
+mahout hadoop jar ${DATATOOLS} org.apache.mahout.clustering.kmeans.GenKMeansDataset -libjars /home/szu004/HiBench/common/autogen/lib/uncommons-maths-1.2.2.jar,/usr/lib/mahout/mahout-examples-0.8-cdh5.0.0-job.jar ${COMPRESS_OPT} ${OPTION} 2>&1 | tee $TMPLOGFILE
 

@@ -89,7 +89,7 @@ if [ -z "$NUTCH_HOME" ]; then
 fi
 
 if [ -z "$DATATOOLS" ]; then
-    export DATATOOLS=${HIBENCH_HOME}/common/autogen/dist/datatools.jar
+    export DATATOOLS=${HIBENCH_HOME}/common/autogen/dist/datatools-cdh5.jar
 fi
 
 if [ $# -gt 1 ]

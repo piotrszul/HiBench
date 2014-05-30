@@ -43,7 +43,7 @@ OPTION="$COMPRESS_OPT -i ${INPUT_SAMPLE} -c ${INPUT_CLUSTER} -o ${OUTPUT_HDFS} -
 START_TIME=`timestamp`
 
 # run bench
-${MAHOUT_HOME}/bin/mahout kmeans  ${OPTION}
+mahout kmeans  ${OPTION}
 
 # post-running
 END_TIME=`timestamp`
