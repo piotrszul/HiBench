@@ -19,8 +19,7 @@ bin=`cd "$bin"; pwd`
 echo "========== preparing wordcount data=========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 check_compress
 
@@ -31,7 +30,7 @@ if [ "x"$HADOOP_VERSION == "xhadoop2" ]; then
 #--- for hadoop version 2.0.5 above ---
 
 # generate data
-  $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter \
+  $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter ${HADOOP_OPTIONS}  \
     -D mapreduce.randomtextwriter.bytespermap=$((${DATASIZE} / ${NUM_MAPS})) \
     -D mapreduce.randomtextwriter.mapsperhost=${NUM_MAPS} \
     $COMPRESS_OPT \
@@ -41,7 +40,7 @@ else
 #--- for hadoop version 1 ---
 
 # generate data
-    $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter \
+    $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter ${HADOOP_OPTIONS} \
       -D test.randomtextwrite.bytes_per_map=$((${DATASIZE} / ${NUM_MAPS})) \
       -D test.randomtextwrite.maps_per_host=${NUM_MAPS} \
       $COMPRESS_OPT \

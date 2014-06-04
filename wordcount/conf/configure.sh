@@ -28,10 +28,10 @@ if [ $COMPRESS -eq 1 ]; then
     OUTPUT_HDFS=${OUTPUT_HDFS}-comp
 fi
 
-# for preparation (per node) - 32G
+# for preparation (per node) - 32G - takes ~10 min with replication=1
 #DATASIZE=32000000000
-DATASIZE=320000000000
+DATASIZE=32000000000
 NUM_MAPS=128
 
 # for running (in total)
-NUM_REDS=48
+NUM_REDS=64

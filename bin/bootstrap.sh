@@ -17,7 +17,7 @@
 . "${DIR}/../bin/hibench-config.sh"
 . "${DIR}/conf/configure.sh"
 
-HADOOP_OPTIONS=""
+HADOOP_OPTIONS="-Dmapred.reduce.slowstart.completed.maps=0.95"
 
 if [[ -n "${REPLICATION_FACTOR}" ]]; then
 	HADOOP_OPTIONS="${HADOOP_OPTIONS} -Ddfs.replication=${REPLICATION_FACTOR}"

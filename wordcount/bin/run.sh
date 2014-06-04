@@ -19,8 +19,7 @@ bin=`cd "$bin"; pwd`
 echo "========== running wordcount bench =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 check_compress
 
@@ -32,7 +31,7 @@ $HADOOP_EXECUTABLE $RMDIR_CMD $OUTPUT_HDFS
 START_TIME=`timestamp`
 
 # run bench
-time $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR wordcount \
+$HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR wordcount ${HADOOP_OPTIONS}  \
     $COMPRESS_OPT \
     -D $CONFIG_REDUCER_NUMBER=${NUM_REDS} \
     -D mapreduce.inputformat.class=org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat \
