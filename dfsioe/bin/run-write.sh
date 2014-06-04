@@ -20,19 +20,17 @@ bin=`cd "$bin"; pwd`
 echo "========== Running dfsioe write =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 #path check
-$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}
+#$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}
 
 # pre-running
 OPTION="-skipAnalyze -write -nrFiles ${WT_NUM_OF_FILES} -fileSize ${WT_FILE_SIZE} -bufferSize 4096 -plotInteval 1000 -sampleUnit m -sampleInteval 200 -sumThreshold 0.5 -tputReportTotal"
 START_TIME=`timestamp`
 
 #run benchmark
-${HADOOP_EXECUTABLE} jar ${DATATOOLS} org.apache.hadoop.fs.dfsioe.TestDFSIOEnh \
- -D dfs.replication=1 \
+${HADOOP_EXECUTABLE} jar ${DATATOOLS} org.apache.hadoop.fs.dfsioe.TestDFSIOEnh ${HADOOP_OPTIONS} \
  ${OPTION} -resFile ${DIR}/result_write.txt -tputFile ${DIR}/throughput_write.csv
 
 # post-running

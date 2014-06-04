@@ -20,8 +20,7 @@ bin=`cd "$bin"; pwd`
 echo "========== Running dfsioe-read bench =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 # path check
 $HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}/io_read
@@ -30,12 +29,12 @@ $HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}/_*
 # pre-running
 #SIZE=`$HADOOP_EXECUTABLE fs -dus ${INPUT_HDFS} | grep -o [0-9]*`
 SIZE=`dir_size $INPUT_HDFS`
-#OPTION="-read -skipAnalyze -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize 131072 -plotInteval 1000 -sampleUnit m -sampleInteval 200 -sumThreshold 0.5"
-OPTION="-skipAnalyze -read -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize 131072 -plotInteval 1000 -sampleUnit m -sampleInteval 200 -sumThreshold 0.5 -tputReportTotal"
+OPTION="-skipAnalyze -read -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize 131072"
 START_TIME=`timestamp`
 
 # run bench
-${HADOOP_EXECUTABLE} jar ${DATATOOLS} org.apache.hadoop.fs.dfsioe.TestDFSIOEnh ${OPTION} -resFile ${DIR}/result_read.txt -tputFile ${DIR}/throughput_read.csv
+${HADOOP_EXECUTABLE} jar ${DATATOOLS} org.apache.hadoop.fs.dfsioe.TestDFSIOEnh ${HADOOP_OPTIONS} \
+ ${OPTION} -resFile ${DIR}/result_read.txt -tputFile ${DIR}/throughput_read.csv
 
 # post-running
 END_TIME=`timestamp`
