@@ -20,14 +20,13 @@ bin=`cd "$bin"; pwd`
 echo "========== preparing terasort data=========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 # path check
 $HADOOP_EXECUTABLE $RMDIR_CMD $INPUT_HDFS
 
 # Generate the terasort data
-$HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR teragen \
+$HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR teragen ${HADOOP_OPTIONS} \
     -D $CONFIG_MAP_NUMBER=$NUM_MAPS \
     $DATASIZE $INPUT_HDFS
 

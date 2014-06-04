@@ -28,7 +28,8 @@ export HIBENCH_VERSION="2.2"
 
 HADOOP_EXECUTABLE=hadoop
 HADOOP_CONF_DIR=/etc/hadoop/conf
-HADOOP_EXAMPLES_JAR=/usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar
+#HADOOP_EXAMPLES_JAR=/usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar
+HADOOP_EXAMPLES_JAR=/usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
 
 if [ -n "$HADOOP_HOME" ]; then
 	HADOOP_EXECUTABLE=$HADOOP_HOME/bin/hadoop
@@ -116,3 +117,7 @@ export COMPRESS_GLOBAL=0
 export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.DefaultCodec
 #export COMPRESS_CODEC_GLOBAL=com.hadoop.compression.lzo.LzoCodec
 #export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.SnappyCodec
+
+################# Replication Options ##################
+export REPLICATION_FACTOR=1
+

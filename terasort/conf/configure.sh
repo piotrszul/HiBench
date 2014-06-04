@@ -17,8 +17,10 @@
 INPUT_HDFS=${DATA_HDFS}/Terasort/Input
 OUTPUT_HDFS=${DATA_HDFS}/Terasort/Output
 
-# for prepare (total) - 1T
-DATASIZE=100000000000
+# for prepare (total) - 200G ~ 10min with replication = 1
+# 100G ~ 5 min with replication = 1
+# DATASIZE is in 100B blocks
+DATASIZE=1000000000
 NUM_MAPS=128
 
 # for running (total)

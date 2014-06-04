@@ -19,8 +19,7 @@ bin=`cd "$bin"; pwd`
 echo "========== running terasort bench =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 # path check
 $HADOOP_EXECUTABLE $RMDIR_CMD $OUTPUT_HDFS
@@ -30,7 +29,9 @@ SIZE=`dir_size $INPUT_HDFS`
 START_TIME=`timestamp`
 
 # run bench
-$HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR terasort -D $CONFIG_REDUCER_NUMBER=$NUM_REDS $INPUT_HDFS $OUTPUT_HDFS
+$HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR terasort  ${HADOOP_OPTIONS} \
+ -D $CONFIG_REDUCER_NUMBER=$NUM_REDS \
+  $INPUT_HDFS $OUTPUT_HDFS
 
 # post-running
 END_TIME=`timestamp`

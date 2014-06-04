@@ -14,29 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-bin=`dirname "$0"`
-bin=`cd "$bin"; pwd`
-
-echo "========== Running dfsioe write =========="
-# configure
-DIR=`cd $bin/../; pwd`
 . "${DIR}/../bin/hibench-config.sh"
 . "${DIR}/conf/configure.sh"
 
-#path check
-$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}
+HADOOP_OPTIONS=""
 
-# pre-running
-OPTION="-skipAnalyze -write -nrFiles ${WT_NUM_OF_FILES} -fileSize ${WT_FILE_SIZE} -bufferSize 4096 -plotInteval 1000 -sampleUnit m -sampleInteval 200 -sumThreshold 0.5 -tputReportTotal"
-START_TIME=`timestamp`
+if [[ -n "${REPLICATION_FACTOR}" ]]; then
+	HADOOP_OPTIONS="${HADOOP_OPTIONS} -Ddfs.replication=${REPLICATION_FACTOR}"
+fi
 
-#run benchmark
-${HADOOP_EXECUTABLE} jar ${DATATOOLS} org.apache.hadoop.fs.dfsioe.TestDFSIOEnh \
- -D dfs.replication=1 \
- ${OPTION} -resFile ${DIR}/result_write.txt -tputFile ${DIR}/throughput_write.csv
+export HADOOP_OPTIONS
 
-# post-running
-END_TIME=`timestamp`
-SIZE=`dir_size $INPUT_HDFS`
-gen_report "DFSIOE-WRITE" ${START_TIME} ${END_TIME} ${SIZE}
-
+echo "HADOOP_OPTIONS=${HADOOP_OPTIONS}"
