@@ -19,9 +19,9 @@ DIR=`cd "${DIR}/.."; pwd`
 
 . $DIR/bin/hibench-config.sh
 
-if [ -f $HIBENCH_REPORT ]; then
-    rm $HIBENCH_REPORT
-fi
+#if [ -f $HIBENCH_REPORT ]; then
+#    rm $HIBENCH_REPORT
+#fi
 
 for benchmark in `cat $DIR/conf/benchmarks.lst`; do
     if [[ $benchmark == \#* ]]; then
@@ -30,9 +30,9 @@ for benchmark in `cat $DIR/conf/benchmarks.lst`; do
 
     if [ "$benchmark" = "dfsio" ] ; then
         # dfsioe specific
-        #$DIR/dfsioe/bin/prepare-read.sh
-        $DIR/dfsioe/bin/run-read.sh
-        $DIR/dfsioe/bin/run-write.sh
+        $DIR/dfsio/bin/prepare-read.sh
+        $DIR/dfsio/bin/run-read.sh
+        #$DIR/dfsio/bin/run-write.sh
 
     elif [ "$benchmark" = "hivebench" ]; then
         # hivebench specific
@@ -42,7 +42,7 @@ for benchmark in `cat $DIR/conf/benchmarks.lst`; do
 
     else
         if [ -e $DIR/${benchmark}/bin/prepare.sh ]; then
-            #$DIR/${benchmark}/bin/prepare.sh
+            $DIR/${benchmark}/bin/prepare.sh
         fi
         $DIR/${benchmark}/bin/run.sh
     fi

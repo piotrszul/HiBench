@@ -1,0 +1,63 @@
+----- TestDFSIO ----- : read
+           Date & time: Thu Jun 05 10:17:41 EST 2014
+       Number of files: 64
+Total MBytes processed: 640000.0
+     Throughput mb/sec: 60.967948101796274
+Average IO rate mb/sec: 299.6927185058594
+ IO rate std deviation: 424.0278139162191
+    Test exec time sec: 326.377
+
+----- TestDFSIO ----- : read
+           Date & time: Thu Jun 05 11:40:57 EST 2014
+       Number of files: 64
+Total MBytes processed: 640000.0
+     Throughput mb/sec: 140.30207914527972
+Average IO rate mb/sec: 141.20806884765625
+ IO rate std deviation: 11.413056331043517
+    Test exec time sec: 113.821
+
+----- TestDFSIO ----- : read
+           Date & time: Thu Jun 05 13:50:54 EST 2014
+       Number of files: 64
+Total MBytes processed: 640000.0
+     Throughput mb/sec: 155.4001176670266
+Average IO rate mb/sec: 155.85888671875
+ IO rate std deviation: 8.599010272517114
+    Test exec time sec: 100.779
+
+----- TestDFSIO ----- : read
+           Date & time: Thu Jun 05 13:52:40 EST 2014
+       Number of files: 64
+Total MBytes processed: 640000.0
+     Throughput mb/sec: 238.60644886123208
+Average IO rate mb/sec: 359.15826416015625
+ IO rate std deviation: 287.27855173239686
+    Test exec time sec: 88.782
+
+----- TestDFSIO ----- : read
+           Date & time: Thu Jun 05 13:54:41 EST 2014
+       Number of files: 64
+Total MBytes processed: 640000.0
+     Throughput mb/sec: 172.19757196042363
+Average IO rate mb/sec: 189.46478271484375
+ IO rate std deviation: 77.75026638743462
+    Test exec time sec: 99.751
+
+----- TestDFSIO ----- : read
+           Date & time: Thu Jun 05 14:43:51 EST 2014
+       Number of files: 128
+Total MBytes processed: 1280000.0
+     Throughput mb/sec: 61.465869755262595
+Average IO rate mb/sec: 63.18723678588867
+ IO rate std deviation: 11.45028153399677
+    Test exec time sec: 237.66
+
+----- TestDFSIO ----- : read
+           Date & time: Thu Jun 05 15:43:19 EST 2014
+       Number of files: 128
+Total MBytes processed: 1280000.0
+     Throughput mb/sec: 65.01790405135195
+Average IO rate mb/sec: 68.45382690429688
+ IO rate std deviation: 20.17573786910435
+    Test exec time sec: 236.094
+

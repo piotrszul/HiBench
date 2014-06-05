@@ -23,8 +23,8 @@ DIR=`cd $bin/../; pwd`
 . "${DIR}/../bin/bootstrap.sh"
 
 # path check
-$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}/io_read
-$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}/_*
+#$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}/io_read
+#$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}/_*
 
 # pre-running
 #SIZE=`$HADOOP_EXECUTABLE fs -dus ${INPUT_HDFS} | grep -o [0-9]*`
