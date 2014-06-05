@@ -26,7 +26,7 @@ fi
 
 TMPLOGFILE=tmplog.log
 
-FORMATS="%-12s %-10s %-8s %-20s %-20s %-20s %-20s %-40s\n"
+FORMATS="%-12s %-10s %-8s %-20s %-20s %-20s %-20s %-80s\n"
 function timestamp(){
     sec=`date +%s`
     nanosec=`date +%N`
@@ -65,7 +65,7 @@ function gen_report() {
         print_field_name
     fi
 
-    printf "$FORMATS" $type $(date +%F) $(date +%T) $size $duration $tput $tput_node $options >> $HIBENCH_REPORT
+    printf "$FORMATS" $type $(date +%F) $(date +%T) $size $duration $tput $tput_node "$options" >> $HIBENCH_REPORT
 }
 
 function check_dir() {

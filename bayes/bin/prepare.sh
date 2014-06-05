@@ -20,8 +20,7 @@ bin=`cd "$bin"; pwd`
 echo "========== preparing bayes data =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 # compress check
 if [ ${COMPRESS} -eq 1 ]; then
@@ -40,4 +39,5 @@ OPTION="-t bayes \
         -class ${CLASSES} \
         -o sequence"
 
-$HADOOP_EXECUTABLE jar ${DATATOOLS} HiBench.DataGen ${OPTION} ${COMPRESS_OPT} 2>&1 | tee $TMPLOGFILE
+$HADOOP_EXECUTABLE jar ${DATATOOLS} HiBench.DataGen ${HADOOP_OPTIONS} \
+  ${OPTION} ${COMPRESS_OPT} 2>&1 | tee $TMPLOGFILE

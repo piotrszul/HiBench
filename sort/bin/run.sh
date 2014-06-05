@@ -20,8 +20,7 @@ bin=`cd "$bin"; pwd`
 echo "========== running sort bench =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 check_compress
 
@@ -34,7 +33,7 @@ START_TIME=`timestamp`
 TMPLOGFILE=tmplog.log
 
 # run bench
-$HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR sort \
+$HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR sort $HADOOP_OPTIONS \
     $COMPRESS_OPT \
     -outKey org.apache.hadoop.io.Text \
     -outValue org.apache.hadoop.io.Text \

@@ -20,8 +20,7 @@ bin=`cd "$bin"; pwd`
 echo "========== preparing sort data=========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 check_compress
 $HADOOP_EXECUTABLE $RMDIR_CMD $INPUT_HDFS
@@ -31,7 +30,7 @@ if [ "x"$HADOOP_VERSION == "xhadoop2" ]; then
 #--- for hadoop version 2.0.5 above ---
 
   # generate data
-  $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter \
+  $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter $HADOOP_OPTIONS \
     -D mapreduce.randomtextwriter.bytespermap=$((${DATASIZE} / ${NUM_MAPS})) \
     -D mapreduce.randomtextwriter.mapsperhost=${NUM_MAPS} \
     $COMPRESS_OPT \

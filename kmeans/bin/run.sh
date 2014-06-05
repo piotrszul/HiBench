@@ -20,8 +20,7 @@ bin=`cd "$bin"; pwd`
 echo "========== running kmeans bench =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 check_compress
 
@@ -43,7 +42,7 @@ OPTION="$COMPRESS_OPT -i ${INPUT_SAMPLE} -c ${INPUT_CLUSTER} -o ${OUTPUT_HDFS} -
 START_TIME=`timestamp`
 
 # run bench
-mahout kmeans  ${OPTION}
+mahout kmeans ${OPTION}
 
 # post-running
 END_TIME=`timestamp`

@@ -28,9 +28,9 @@ for benchmark in `cat $DIR/conf/benchmarks.lst`; do
         continue
     fi
 
-    if [ "$benchmark" = "dfsioe" ] ; then
+    if [ "$benchmark" = "dfsio" ] ; then
         # dfsioe specific
-        $DIR/dfsioe/bin/prepare-read.sh
+        #$DIR/dfsioe/bin/prepare-read.sh
         $DIR/dfsioe/bin/run-read.sh
         $DIR/dfsioe/bin/run-write.sh
 
@@ -42,7 +42,7 @@ for benchmark in `cat $DIR/conf/benchmarks.lst`; do
 
     else
         if [ -e $DIR/${benchmark}/bin/prepare.sh ]; then
-            $DIR/${benchmark}/bin/prepare.sh
+            #$DIR/${benchmark}/bin/prepare.sh
         fi
         $DIR/${benchmark}/bin/run.sh
     fi

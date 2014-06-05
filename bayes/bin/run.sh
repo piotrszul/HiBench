@@ -19,8 +19,7 @@ bin=`cd "$bin"; pwd`
 echo "========== running bayes bench =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 check_compress
 
@@ -39,10 +38,10 @@ fi
 START_TIME=`timestamp`
 
 # run bench
-mahout seq2sparse \
+mahout seq2sparse ${HADOOP_OPTIONS} \
         $COMPRESS_OPT -i ${INPUT_HDFS} -o ${OUTPUT_HDFS}/vectors  -lnorm -nv  -wt tfidf -ng ${NGRAMS}
 
-mahout trainnb \
+mahout trainnb  ${HADOOP_OPTIONS} \
         $COMPRESS_OPT -i ${OUTPUT_HDFS}/vectors/tfidf-vectors -el -o ${OUTPUT_HDFS}/model -li ${OUTPUT_HDFS}/labelindex  -ow --tempDir ${OUTPUT_HDFS}/temp
 
 # post-running

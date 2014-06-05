@@ -14,25 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# compress
-COMPRESS=$COMPRESS_GLOBAL
-COMPRESS_CODEC=$COMPRESS_CODEC_GLOBAL
-
 # paths
-INPUT_HDFS=${DATA_HDFS}/KMeans/Input
-OUTPUT_HDFS=${DATA_HDFS}/KMeans/Output
-if [ $COMPRESS -eq 1 ]; then
-    INPUT_HDFS=${INPUT_HDFS}-comp
-    OUTPUT_HDFS=${OUTPUT_HDFS}-comp
-fi
-INPUT_SAMPLE=${INPUT_HDFS}/samples
-INPUT_CLUSTER=${INPUT_HDFS}/cluster
+INPUT_HDFS=/benchmarks/TestDFSIO
 
-# for prepare
-NUM_OF_CLUSTERS=10
-NUM_OF_SAMPLES=6000000
-SAMPLES_PER_INPUTFILE=60000
-DIMENSIONS=100
+# dfsioe-read
+RD_NUM_OF_FILES=128
+RD_FILE_SIZE=10000 #2000 in MB
 
-# for running
-MAX_ITERATION=5
+# dfsioe-write
+WT_NUM_OF_FILES=64
+WT_FILE_SIZE=5000 #1000 in MB

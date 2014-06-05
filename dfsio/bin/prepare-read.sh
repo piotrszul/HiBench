@@ -14,25 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# compress
-COMPRESS=$COMPRESS_GLOBAL
-COMPRESS_CODEC=$COMPRESS_CODEC_GLOBAL
+bin=`dirname "$0"`
+bin=`cd "$bin"; pwd`
 
-# paths
-INPUT_HDFS=${DATA_HDFS}/KMeans/Input
-OUTPUT_HDFS=${DATA_HDFS}/KMeans/Output
-if [ $COMPRESS -eq 1 ]; then
-    INPUT_HDFS=${INPUT_HDFS}-comp
-    OUTPUT_HDFS=${OUTPUT_HDFS}-comp
-fi
-INPUT_SAMPLE=${INPUT_HDFS}/samples
-INPUT_CLUSTER=${INPUT_HDFS}/cluster
+echo "========== preparing dfsioe data =========="
+# configure
+DIR=`cd $bin/../; pwd`
+. "${DIR}/../bin/bootstrap.sh"
 
-# for prepare
-NUM_OF_CLUSTERS=10
-NUM_OF_SAMPLES=6000000
-SAMPLES_PER_INPUTFILE=60000
-DIMENSIONS=100
+# path check
+$HADOOP_EXECUTABLE $RMDIR_CMD /benchmarks/TestDFSIO
 
-# for running
-MAX_ITERATION=5
+# generate data
+${HADOOP_EXECUTABLE} jar /usr/lib/hadoop-0.20-mapreduce/hadoop-test.jar TestDFSIO ${HADOOP_OPTIONS} \
+ -write -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize 4096 
+

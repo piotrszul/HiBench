@@ -20,8 +20,7 @@ bin=`cd "$bin"; pwd`
 echo "========== preparing kmeans data =========="
 # configure
 DIR=`cd $bin/../; pwd`
-. "${DIR}/../bin/hibench-config.sh"
-. "${DIR}/conf/configure.sh"
+. "${DIR}/../bin/bootstrap.sh"
 
 
 # compress check
