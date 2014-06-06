@@ -1,0 +1,54 @@
+Type         Date       Time     Input_data_size      Duration(s)          Throughput(bytes/s)  Throughput/node      Options                                 
+TERASORT     2014-06-04 17:21:58 100000000000         327.952              304922671            76230667                                                     
+WORDCOUNT    2014-06-04 17:58:05 131397867727         584.956              224628634            56157158             -Ddfs.replication=1                     
+WORDCOUNT    2014-06-04 18:22:26 131397867727         568.057              231311061            57827765             -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+TERASORT     2014-06-04 18:32:21 100000000000         332.231              300995391            75248847             -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIOE-WRITE 2014-06-04 18:39:36 675294905219         211.378              3194726533           798681633            -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIOE-READ  2014-06-04 19:26:43 2701189144504        1439.935             1875910471           468977617            -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIOE-READ  2014-06-05 09:09:42 2701189144504        793.880              3402515675           850628918            -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIOE-WRITE 2014-06-05 09:19:52 2520666277437        507.683              4965039754           1241259938           -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIOE-WRITE 2014-06-05 09:22:04 185657900344         89.435               2075897583           518974395            -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIOE-WRITE 2014-06-05 09:31:49 391704674093         404.640              968032508            242008127            -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIO-WRITE  2014-06-05 09:34:20 476479762221         2.525                188704856325         47176214081          -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIO-WRITE  2014-06-05 09:36:38 67.250               -Dmapred.reduce.slowstart.completed.maps=0.95 -Ddfs.replication=1                                                               
+DFSIO-WRITE  2014-06-05 09:43:44 335544323691         82.541               4065183650           1016295912           -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIO-WRITE  2014-06-05 09:48:55 671088647306         123.091              5451971690           1362992922           -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIO-READ   2014-06-05 10:17:44 671088647306         329.490              2036749665           509187416            -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+DFSIO-READ   2014-06-05 11:40:59 671088647304         116.952              5738154518           1434538629           -Dmapred.reduce.slowstart.completed.maps=0.95
+-Ddfs.replication=1                                                                                                                                                 
+TERASORT     2014-06-05 12:15:57 100000000000         340.203              293942146            73485536             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+WORDCOUNT    2014-06-05 12:45:02 131398269274         568.963              230943434            57735858             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+WORDCOUNT    2014-06-05 12:52:50 65698903541          296.406              221651732            55412933             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+KMEANS       2014-06-05 13:13:45 2424028416           203.812              11893452             2973363              -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+KMEANS       2014-06-05 13:19:34 4848028416           243.129              19940148             4985037              -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-05 13:23:30 9854847450           83.498               118024952            29506238                                                                                             
+SORT         2014-06-05 13:28:55 26279474928          115.567              227396012            56849003             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-05 13:47:18 123347912527         239.173              515726743            128931685            -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+DFSIO-READ   2014-06-05 13:50:57 671088647304         104.109              6446019530           1611504882           -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+DFSIO-READ   2014-06-05 13:52:43 671088647304         92.514               7253914513           1813478628           -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+DFSIO-READ   2014-06-05 13:54:44 671088647304         103.081              6510304006           1627576001           -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+DFSIO-WRITE  2014-06-05 13:58:03 671088647393         134.215              5000101683           1250025420           -Dmapred.reduce.slowstart.completed.maps=0.95 -Ddfs.replication=1               
+DFSIO-WRITE  2014-06-05 14:00:55 167772161969         64.308               2608884772           652221193            -Dmapred.reduce.slowstart.completed.maps=0.95 -Ddfs.replication=1               
+DFSIO-WRITE  2014-06-05 14:04:30 781281396573         188.917              4135580157           1033895039           -Dmapred.reduce.slowstart.completed.maps=0.95 -Ddfs.replication=1               
+DFSIO-WRITE  2014-06-05 14:12:36 357824466541         392.284              912156668            228039167            -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+DFSIO-READ   2014-06-05 14:43:54 1342177294567        241.561              5556266510           1389066627           -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-05 15:04:26 328496196672         1090.536             301224532            75306133             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-05 15:11:59 68472318541          287.545              238127314            59531828             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-05 15:23:18 131398446047         468.678              280359748            70089937             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+WORDCOUNT    2014-06-05 15:30:56 65698877218          300.443              218673349            54668337             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+DFSIO-READ   2014-06-05 15:43:21 1342177294567        239.960              5593337616           1398334404           -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+TERASORT     2014-06-05 16:01:51 100000000000         336.977              296756158            74189039             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+BAYES        2014-06-05 16:15:57 147289827            644.744              228446               57111                -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+BAYES        2014-06-05 16:33:55 147289827            670.559              219652               54913                -Dmapred.reduce.slowstart.completed.maps=0.95                                   

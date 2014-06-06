@@ -1,0 +1,12 @@
+Type         Date       Time     Input_data_size      Duration(s)          Throughput(bytes/s)  Throughput/node      Options                                                                         
+SORT         2014-06-06 09:04:00 68472318541          274.127              249783197            62445799             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-06 09:10:06 68472318541          275.849              248223914            62055978             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+WORDCOUNT    2014-06-06 09:22:09 34131354248          267.179              127747144            31936786             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+KMEANS       2014-06-06 09:27:24 4848028416           242.184              20017955             5004488              -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-06 09:34:05 68472662773          283.459              241561082            60390270             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+WORDCOUNT    2014-06-06 09:46:49 34131261366          306.322              111422820            27855705             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+KMEANS       2014-06-06 09:51:52 4848028416           243.274              19928263             4982065              -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-06 09:58:26 68473411678          280.542              244075438            61018859             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+WORDCOUNT    2014-06-06 10:07:18 34131347911          266.132              128249695            32062423             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+KMEANS       2014-06-06 10:12:20 4848028416           241.232              20096954             5024238              -Dmapred.reduce.slowstart.completed.maps=0.95                                   
+SORT         2014-06-06 10:19:11 68472475443          299.617              228533345            57133336             -Dmapred.reduce.slowstart.completed.maps=0.95                                   
