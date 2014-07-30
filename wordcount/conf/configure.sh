@@ -30,8 +30,8 @@ fi
 
 # for preparation (per node) - 32G - takes ~10 min with replication=1
 #DATASIZE=32000000000
-DATASIZE=16000000000
-NUM_MAPS=64
+DATASIZE=160000000000
+NUM_MAPS=128
 
 # for running (in total)
-NUM_REDS=32
+NUM_REDS=64

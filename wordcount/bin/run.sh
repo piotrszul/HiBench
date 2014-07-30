@@ -33,6 +33,7 @@ START_TIME=`timestamp`
 # run bench
 $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR wordcount ${HADOOP_OPTIONS}  \
     $COMPRESS_OPT \
+    -D io.sort.mb=1500 \
     -D $CONFIG_REDUCER_NUMBER=${NUM_REDS} \
     -D mapreduce.inputformat.class=org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat \
     -D mapreduce.outputformat.class=org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat \

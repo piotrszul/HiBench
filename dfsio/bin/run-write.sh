@@ -26,7 +26,7 @@ DIR=`cd $bin/../; pwd`
 #$HADOOP_EXECUTABLE $RMDIR_CMD ${INPUT_HDFS}
 
 # pre-running
-OPTION="-write -nrFiles ${WT_NUM_OF_FILES} -fileSize ${WT_FILE_SIZE} -bufferSize 4096"
+OPTION="-write -nrFiles ${WT_NUM_OF_FILES} -fileSize ${WT_FILE_SIZE} -bufferSize ${BUFFER_SIZE}"
 START_TIME=`timestamp`
 
 #run benchmark

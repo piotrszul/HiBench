@@ -1,27 +1,36 @@
 ----- TestDFSIO ----- : write
-           Date & time: Fri Jun 06 06:06:13 EST 2014
-       Number of files: 64
-Total MBytes processed: 320000.0
-     Throughput mb/sec: 16.124604493685403
-Average IO rate mb/sec: 16.156930923461914
- IO rate std deviation: 0.7451628713191774
-    Test exec time sec: 354.939
+           Date & time: Tue Jun 17 14:01:51 EST 2014
+       Number of files: 128
+Total MBytes processed: 1280000.0
+     Throughput mb/sec: 63.54247196200836
+Average IO rate mb/sec: 64.3733901977539
+ IO rate std deviation: 11.49215228472114
+    Test exec time sec: 241.996
 
 ----- TestDFSIO ----- : write
-           Date & time: Fri Jun 06 06:16:16 EST 2014
-       Number of files: 64
-Total MBytes processed: 320000.0
-     Throughput mb/sec: 15.96504692451581
-Average IO rate mb/sec: 15.992708206176758
- IO rate std deviation: 0.6868617802247148
-    Test exec time sec: 363.895
+           Date & time: Tue Jun 17 14:20:24 EST 2014
+       Number of files: 128
+Total MBytes processed: 1280000.0
+     Throughput mb/sec: 62.44189976357936
+Average IO rate mb/sec: 63.30641555786133
+ IO rate std deviation: 12.419050197544223
+    Test exec time sec: 239.693
 
 ----- TestDFSIO ----- : write
-           Date & time: Fri Jun 06 06:25:00 EST 2014
-       Number of files: 64
-Total MBytes processed: 320000.0
-     Throughput mb/sec: 16.27079401118851
-Average IO rate mb/sec: 16.303369522094727
- IO rate std deviation: 0.7624948062435521
-    Test exec time sec: 350.121
+           Date & time: Tue Jun 17 14:36:03 EST 2014
+       Number of files: 128
+Total MBytes processed: 1280000.0
+     Throughput mb/sec: 65.01609757941006
+Average IO rate mb/sec: 65.6624984741211
+ IO rate std deviation: 9.992881509094113
+    Test exec time sec: 222.59
+
+----- TestDFSIO ----- : write
+           Date & time: Fri Jun 20 13:32:19 EST 2014
+       Number of files: 128
+Total MBytes processed: 1280000.0
+     Throughput mb/sec: 80.5441867296153
+Average IO rate mb/sec: 90.05755615234375
+ IO rate std deviation: 40.92142883233615
+    Test exec time sec: 216.519
 

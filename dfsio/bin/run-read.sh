@@ -29,7 +29,7 @@ DIR=`cd $bin/../; pwd`
 # pre-running
 #SIZE=`$HADOOP_EXECUTABLE fs -dus ${INPUT_HDFS} | grep -o [0-9]*`
 SIZE=`dir_size $INPUT_HDFS`
-OPTION="-read -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize 131072"
+OPTION="-read -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize  ${BUFFER_SIZE}"
 START_TIME=`timestamp`
 
 # run bench

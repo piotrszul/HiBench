@@ -113,7 +113,7 @@ export HIBENCH_REPORT=${HIBENCH_HOME}/hibench.report
 
 ################# Compress Options #################
 # swith on/off compression: 0-off, 1-on
-export COMPRESS_GLOBAL=1
+export COMPRESS_GLOBAL=0
 #export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.DefaultCodec
 #export COMPRESS_CODEC_GLOBAL=com.hadoop.compression.lzo.LzoCodec
 export COMPRESS_CODEC_GLOBAL=org.apache.hadoop.io.compress.SnappyCodec

@@ -27,5 +27,5 @@ $HADOOP_EXECUTABLE $RMDIR_CMD /benchmarks/TestDFSIO
 
 # generate data
 ${HADOOP_EXECUTABLE} jar /usr/lib/hadoop-0.20-mapreduce/hadoop-test.jar TestDFSIO ${HADOOP_OPTIONS} \
- -write -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize 4096 
+ -write -nrFiles ${RD_NUM_OF_FILES} -fileSize ${RD_FILE_SIZE} -bufferSize  ${BUFFER_SIZE}
 

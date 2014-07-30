@@ -34,6 +34,9 @@ TMPLOGFILE=tmplog.log
 
 # run bench
 $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR sort $HADOOP_OPTIONS \
+ -Dmapred.job.reuse.jvm.num.tasks=1000 \
+ -Dio.sort.factor=32 \
+ -Dio.sort.mb=1300 \
     $COMPRESS_OPT \
     -outKey org.apache.hadoop.io.Text \
     -outValue org.apache.hadoop.io.Text \

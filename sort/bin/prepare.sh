@@ -31,6 +31,7 @@ if [ "x"$HADOOP_VERSION == "xhadoop2" ]; then
 
   # generate data
   $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter $HADOOP_OPTIONS \
+    -D dfs.block.size=1073741824 \
     -D mapreduce.randomtextwriter.bytespermap=$((${DATASIZE} / ${NUM_MAPS})) \
     -D mapreduce.randomtextwriter.mapsperhost=${NUM_MAPS} \
     $COMPRESS_OPT \

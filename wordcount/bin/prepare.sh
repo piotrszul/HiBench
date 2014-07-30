@@ -31,11 +31,14 @@ if [ "x"$HADOOP_VERSION == "xhadoop2" ]; then
 
 # generate data
   $HADOOP_EXECUTABLE jar $HADOOP_EXAMPLES_JAR randomtextwriter ${HADOOP_OPTIONS}  \
+    -D dfs.block.size=1G \
+    -D dfs.replication=4 \
     -D mapreduce.randomtextwriter.bytespermap=$((${DATASIZE} / ${NUM_MAPS})) \
     -D mapreduce.randomtextwriter.mapsperhost=${NUM_MAPS} \
     $COMPRESS_OPT \
     $INPUT_HDFS
 
+#    -D dfs.blocksize=8589934592 \
 else
 #--- for hadoop version 1 ---
 
