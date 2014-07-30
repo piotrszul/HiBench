@@ -1,0 +1,25 @@
+Type         Date       Time     Input_data_size      Duration(s)          Throughput(bytes/s)  Throughput/node      Options                                                                         
+WORDCOUNT    2014-07-28 16:09:28 656984214543         2205.191             297926217            74481554              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+DFSIO-READ   2014-07-28 16:17:52 1342177294569        259.488              5172406024           1293101506           -Ddfs.blocksize=128M -Ddfs.replication=1 -Dmapred.reduce.slowstart.completed.maps=0.95
+KMEANS       2014-07-28 17:40:01 240240297646         4505.705             53319135             13329783              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+BAYES        2014-07-28 18:57:22 1492477427           4595.434             324773               81193                 -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+SORT         2014-07-28 19:32:31 985475455672         1399.717             704053359            176013339             -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+TERASORT     2014-07-28 20:08:24 500000000000         1822.715             274316061            68579015              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+WORDCOUNT    2014-07-29 11:03:31 656983692572         2212.764             296906354            74226588              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+DFSIO-READ   2014-07-29 11:15:10 1342177294569        454.063              2955927469           738981867            -Ddfs.blocksize=128M -Ddfs.replication=1 -Dmapred.reduce.slowstart.completed.maps=0.95
+KMEANS       2014-07-29 12:37:28 240240297646         4505.842             53317514             13329378              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+BAYES        2014-07-29 13:55:11 1492477427           4620.215             323032               80758                 -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+SORT         2014-07-29 14:30:18 985475628964         1389.089             709440236            177360059             -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+TERASORT     2014-07-29 15:07:25 500000000000         1883.143             265513558            66378389              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+WORDCOUNT    2014-07-29 16:58:33 656984056464         2206.687             297724170            74431042              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+DFSIO-READ   2014-07-29 17:09:09 1342177294569        394.227              3404579834           851144958            -Ddfs.blocksize=128M -Ddfs.replication=1 -Dmapred.reduce.slowstart.completed.maps=0.95
+KMEANS       2014-07-29 18:31:25 240240297646         4500.453             53381359             13345339              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+BAYES        2014-07-29 19:48:16 1492477427           4567.776             326740               81685                 -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+SORT         2014-07-29 20:24:05 985475342185         1426.061             691047116            172761779             -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+TERASORT     2014-07-29 21:00:16 500000000000         1838.427             271971636            67992909              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+WORDCOUNT    2014-07-30 09:26:24 656983939885         2203.005             298221719            74555429              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+DFSIO-READ   2014-07-30 09:37:44 1342177294569        435.438              3082361425           770590356            -Ddfs.blocksize=128M -Ddfs.replication=1 -Dmapred.reduce.slowstart.completed.maps=0.95
+KMEANS       2014-07-30 11:00:08 240240297646         4517.815             53176214             13294053              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+BAYES        2014-07-30 12:18:01 1492477427           4629.121             322410               80602                 -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+SORT         2014-07-30 12:53:36 985475108017         1400.061             703880122            175970030             -Dmapred.reduce.slowstart.completed.maps=0.95                                  
+TERASORT     2014-07-30 13:29:35 500000000000         1820.400             274664908            68666227              -Dmapred.reduce.slowstart.completed.maps=0.95                                  
