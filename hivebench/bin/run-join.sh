@@ -36,8 +36,8 @@ echo "set $CONFIG_REDUCER_NUMBER=$NUM_REDS;">>$DIR/hive-benchmark/rankings_userv
 echo "set hive.stats.autogather=false;">>$DIR/hive-benchmark/rankings_uservisits_join.hive
 
 if [ "x"$HADOOP_VERSION == "xhadoop2" ]; then
-  echo "set mapreduce.jobtracker.address=ignorethis">>$DIR/hive-benchmark/rankings_uservisits_join.hive
-  echo "set hive.exec.show.job.failure.debug.info=false">>$DIR/hive-benchmark/rankings_uservisits_join.hive
+  echo "set mapreduce.jobtracker.address=ignorethis;">>$DIR/hive-benchmark/rankings_uservisits_join.hive
+  echo "set hive.exec.show.job.failure.debug.info=false;">>$DIR/hive-benchmark/rankings_uservisits_join.hive
 
   if [ $COMPRESS -eq 1 ]; then
     echo "set mapreduce.map.output.compress=true;">>$DIR/hive-benchmark/rankings_uservisits_join.hive
@@ -61,11 +61,14 @@ echo "CREATE EXTERNAL TABLE rankings (pageURL STRING, pageRank INT, avgDuration 
 echo "CREATE EXTERNAL TABLE uservisits (sourceIP STRING,destURL STRING,visitDate STRING,adRevenue DOUBLE,userAgent STRING,countryCode STRING,languageCode STRING,searchWord STRING,duration INT ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS SEQUENCEFILE LOCATION '$INPUT_HDFS/uservisits/';">>$DIR/hive-benchmark/rankings_uservisits_join.hive
 cat $DIR/hive-benchmark/rankings_uservisits_join.template>>$DIR/hive-benchmark/rankings_uservisits_join.hive
 
-USIZE=$($HADOOP_EXECUTABLE job -history $INPUT_HDFS/uservisits | grep 'HiBench.Counters.*|BYTES_DATA_GENERATED')
+
+echo "INPUT: $INPUT_HDFS"
+
+USIZE=$(hadoop fs -du -s  $INPUT_HDFS/uservisits | awk '{print $1}')
 USIZE=${USIZE##*|}
 USIZE=${USIZE//,/}
 
-RSIZE=$($HADOOP_EXECUTABLE job -history $INPUT_HDFS/rankings | grep 'HiBench.Counters.*|BYTES_DATA_GENERATED')
+RSIZE=$(hadoop fs -du -s  $INPUT_HDFS/rankings | awk '{print $1}')
 RSIZE=${RSIZE##*|}
 RSIZE=${RSIZE//,/}
 
@@ -74,11 +77,12 @@ SIZE=$((USIZE+RSIZE))
 START_TIME=`timestamp`
 
 # run bench
-$HIVE_HOME/bin/hive -f $DIR/hive-benchmark/rankings_uservisits_join.hive
+hive -f $DIR/hive-benchmark/rankings_uservisits_join.hive
 
 # post-running
 END_TIME=`timestamp`
 gen_report "HIVEJOIN" ${START_TIME} ${END_TIME} ${SIZE}
 
 $HADOOP_EXECUTABLE $RMDIR_CMD $OUTPUT_HDFS/hive-join
+$HADOOP_EXECUTABLE fs -mkdir -p $OUTPUT_HDFS
 $HADOOP_EXECUTABLE fs -cp /user/hive/warehouse/rankings_uservisits_join $OUTPUT_HDFS/hive-join

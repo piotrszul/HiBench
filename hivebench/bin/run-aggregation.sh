@@ -27,7 +27,7 @@ DIR=`cd $bin/../; pwd`
 rm -rf ${DIR}/metastore_db
 rm -rf ${DIR}/TempStatsStore
 $HADOOP_EXECUTABLE fs -rmr /user/hive/warehouse/uservisits_aggre
-$HADOOP_EXECUTABLE fs -rmr /tmp
+#$HADOOP_EXECUTABLE fs -rmr /tmp
 
 # pre-running
 echo "USE DEFAULT;" > $DIR/hive-benchmark/uservisits_aggre.hive
@@ -47,17 +47,18 @@ echo "DROP TABLE uservisits_aggre;" >> $DIR/hive-benchmark/uservisits_aggre.hive
 echo "CREATE EXTERNAL TABLE uservisits (sourceIP STRING,destURL STRING,visitDate STRING,adRevenue DOUBLE,userAgent STRING,countryCode STRING,languageCode STRING,searchWord STRING,duration INT ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS SEQUENCEFILE LOCATION '$INPUT_HDFS/uservisits';">> $DIR/hive-benchmark/uservisits_aggre.hive
 cat $DIR/hive-benchmark/uservisits_aggre.template >> $DIR/hive-benchmark/uservisits_aggre.hive
 
-SIZE=$($HADOOP_EXECUTABLE job -history $INPUT_HDFS/uservisits | grep 'HiBench.Counters.*|BYTES_DATA_GENERATED')
+SIZE=$(hadoop fs -du -s  $INPUT_HDFS/uservisits | awk '{print $1}')
 SIZE=${SIZE##*|}
 SIZE=${SIZE//,/}
 START_TIME=`timestamp`
 
 # run bench
-$HIVE_HOME/bin/hive -f $DIR/hive-benchmark/uservisits_aggre.hive
+hive -f $DIR/hive-benchmark/uservisits_aggre.hive
 
 # post-running
 END_TIME=`timestamp`
 gen_report "HIVEAGGR" ${START_TIME} ${END_TIME} ${SIZE}
 
 $HADOOP_EXECUTABLE fs -rmr $OUTPUT_HDFS/hive-aggre
+$HADOOP_EXECUTABLE fs -mkdir -p $OUTPUT_HDFS
 $HADOOP_EXECUTABLE fs -cp /user/hive/warehouse/uservisits_aggre $OUTPUT_HDFS/hive-aggre
